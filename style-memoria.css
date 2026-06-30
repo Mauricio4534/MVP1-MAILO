@@ -1,0 +1,57 @@
+
+.contenido-izquierdo-juego {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.zona-juego {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+   
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    grid-template-rows: repeat(3, 1fr);    /* 3 filas */
+    gap: 15px;                             /* Separación entre las cartas */
+}
+
+/*cartas originales */
+.card {
+    width: 100px;  
+    height: 130px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.face {
+    display: none;
+}
+
+.flipped .face {
+    display: block;
+}
+
+.flipped .back {
+    display: none;
+}
