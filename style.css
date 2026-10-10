@@ -1,22 +1,36 @@
 * {
     margin: 0;
     padding: 0;
+<<<<<<< HEAD
     box-sizing: border-box; /* Hace que el padding no sume tamaño extra al ancho del elemento */
     font-family: 'Arial Rounded MT Bold', 'Segoe UI', sans-serif; /* Tipografía redondeada estilo infantil */
+=======
+    box-sizing: border-box; 
+    font-family: 'Arial Rounded MT Bold', 'Segoe UI', sans-serif; 
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
 }
 
 /* FONDO DE LA PÁGINA: Centra la pantalla del juego en el monitor */
 body {
+<<<<<<< HEAD
     background-color: #2b4c59; /* Color verde/azul oscuro de fondo exterior */
     display: flex;
     justify-content: center; /* Centrado horizontal */
     align-items: center;     /* Centrado vertical */
     min-height: 100vh;       /* Fuerza al body a ocupar todo el alto de la ventana */
+=======
+    background-color: #2b4c59; 
+    display: flex;
+    justify-content: center;  
+    align-items: center;     
+    min-height: 100vh;       
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
     padding: 20px;
 }
 
 /* CONTENEDOR INTERFAZ: Simula las dimensiones del tablero/tablet del juego */
 .pantalla-principal {
+<<<<<<< HEAD
     display: flex;            /* Pone la sección izquierda y el menú lateral uno al lado del otro */
     width: 100%;
     max-width: 1200px;        /* Ancho máximo para que no se deforme en pantallas gigantes */
@@ -25,26 +39,51 @@ body {
     border-radius: 20px;      /* Bordes redondeados de la pantalla general */
     overflow: hidden;         /* Oculta cualquier desborde de elementos hijos fuera de las esquinas */
     box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra suave para darle profundidad */
+=======
+    display: flex;            
+    height: 100%;
+    width: 100%;
+    max-width: 1200px;        
+    
+    background-color: #4b808d; 
+    border-radius: 20px;     
+    overflow: hidden;         
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
 }
 
 /* --- BLOQUE IZQUIERDO (CONTENIDOS) --- */
 .contenido-izquierdo {
+<<<<<<< HEAD
     flex: 1;                  /* Toma todo el espacio disponible restante dejando el menú a la derecha */
     display: flex;
     flex-direction: column;   /* Alinea el header, las tarjetas y el footer verticalmente */
     padding: 20px;
     justify-content: space-between; /* Distribuye el espacio equitativamente arriba, al medio y abajo */
+=======
+    flex: 1;                 
+    display: flex;
+    flex-direction: column;   
+    padding: 20px;
+    justify-content: space-between; 
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
 }
 
 /* ENCABEZADO (LOGO + TÍTULO) */
 .encabezado {
     display: flex;
+<<<<<<< HEAD
     align-items: center;      /* Centra verticalmente el texto respecto al círculo del logo */
     gap: 20px;                /* Separación entre el logo y el texto del título */
+=======
+    align-items: center;      
+    gap: 20px;                
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
 }
 
 /* Círculo contenedor del perrito */
 .logo-mailo {
+<<<<<<< HEAD
     background-color: #d98a4b; /* Fondo naranja del logo */
     border: 4px solid #fff;    /* Borde grueso blanco */
     border-radius: 50%;        /* Lo transforma en un círculo perfecto */
@@ -52,6 +91,15 @@ body {
     height: 90px;
     display: flex;
     justify-content: center;   /* Centra el texto/emoji dentro del círculo */
+=======
+    background-color: #d98a4b; 
+    border: 4px solid #fff;    
+    border-radius: 50%;        
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;   
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
     align-items: center;
     color: white;
     font-weight: bold;
@@ -60,46 +108,80 @@ body {
 .titulo-principal {
     color: white;
     font-size: 2rem;
+<<<<<<< HEAD
     text-shadow: 2px 2px 4px rgba(0,0,0,0.4); /* Sombra negra al texto para dar efecto relieve */
     letter-spacing: 1px;       /* Espaciado leve entre letras */
+=======
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4); 
+    letter-spacing: 1px;       
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
 }
 
 /* DISTRIBUCIÓN DE LOS 4 PASOS (GRID) */
 .cuadrante-pasos {
     display: grid;
+<<<<<<< HEAD
     grid-template-columns: 1fr 1fr; /* Divide el espacio en 2 columnas de igual ancho (Fracción) */
     gap: 20px;                      /* Separación entre las tarjetas (filas y columnas) */
+=======
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;                      
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
     margin: 20px 0;
 }
 
 /* Tarjetas individuales de los pasos */
 .tarjeta-paso {
+<<<<<<< HEAD
     background-color: #92b7c0; /* Fondo más claro para resaltar del tablero */
     border: 3px solid #fff;    /* Borde blanco característico del diseño */
     border-radius: 40px;       /* Bordes muy ovalados idénticos a la imagen */
     padding: 15px;
     position: relative;        /* Permite posicionar el número de forma absoluta respecto a esta tarjeta */
+=======
+    background-color: #92b7c0; 
+    border: 3px solid #fff;    
+    border-radius: 40px;       
+    padding: 15px;
+    position: relative;        
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+<<<<<<< HEAD
     color: #1e3842;            /* Color de texto oscuro para buen contraste */
     height: 180px;             /* Altura fija para que las 4 sean idénticas */
+=======
+    color: #1e3842;            
+    height: 180px;            
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
 }
 
 /* Círculos con el número de cada paso (1, 2, 3, 4) */
 .tarjeta-paso .numero {
+<<<<<<< HEAD
     position: absolute;        /* Se despega del flujo y se ubica libremente */
     top: 10px;                 /* Distancia desde arriba */
     left: 15px;                /* Distancia desde la izquierda */
     background-color: #558d9c; /* Fondo del círculo numérico */
+=======
+    position: absolute;        
+    top: 10px;                 
+    left: 15px;                
+    background-color: #558d9c; 
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
     color: white;
     border-radius: 50%;
     width: 30px;
     height: 30px;
     display: flex;
+<<<<<<< HEAD
     justify-content: center;   /* Centra el número dentro de su pequeña esfera */
+=======
+    justify-content: center;   
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
     align-items: center;
     font-weight: bold;
     border: 2px solid white;
@@ -113,6 +195,7 @@ body {
 
 /* --- BLOQUE DERECHO (MENÚ LATERAL) --- */
 .menu-lateral {
+<<<<<<< HEAD
     width: 280px;              /* Ancho fijo para la barra de menú */
     background-color: #386775; /* Fondo un tono más oscuro que el tablero izquierdo */
     border-left: 4px solid #fff; /* Línea divisoria blanca y gruesa */
@@ -121,11 +204,22 @@ body {
     padding: 20px;
     justify-content: space-between;
     position: relative;        /* Requerido para posicionar la pestaña lateral 'MENU PRINCIPAL' */
+=======
+    width: 280px;              
+    background-color: #386775; 
+    border-left: 4px solid #fff;
+    display: flex;
+    flex-direction: column;    
+    padding: 20px;
+    justify-content: space-between;
+    position: relative;        
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
 }
 
 /* PESTAÑA VERTICAL "MENU PRINCIPAL" */
 .etiqueta-menu {
     position: absolute;
+<<<<<<< HEAD
     left: -45px;               /* Saca la pestaña hacia la izquierda metiéndose en la sección anterior */
     top: 90px;
     transform: rotate(-90deg); /* Rota el texto para que se lea verticalmente */
@@ -135,6 +229,15 @@ body {
     border-radius: 10px 10px 0 0; /* Redondea solo las esquinas que sobresalen */
     border: 3px solid white;
     border-bottom: none;       /* Quita el borde inferior para fundirse con la barra lateral */
+=======
+    width: 80%;
+    background-color: #386775; 
+    color: white;
+    padding: 5px 5px;
+   
+    border: 3px solid white;
+    
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
     font-size: 0.8rem;
     font-weight: bold;
 }
@@ -143,8 +246,13 @@ body {
 .contenedor-botones {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     gap: 15px;                 /* Distancia vertical constante entre cada botón */
     margin-top: 40px;          /* Espacio superior para no chocar con la solapa */
+=======
+    gap: 15px;                 
+    margin-top: 40px;         
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
 }
 
 /* ESTILO BASE DE LOS BOTONES (Estilo cápsula) */
@@ -152,6 +260,7 @@ body {
     background-color: #598e9c;
     color: white;
     border: 3px solid #fff;
+<<<<<<< HEAD
     border-radius: 30px;       /* Forma de píldora/cápsula */
     padding: 12px 20px;
     font-size: 1.1rem;
@@ -161,20 +270,40 @@ body {
     justify-content: space-between; /* Empuja el texto a la izquierda y el ícono a la derecha */
     align-items: center;
     transition: transform 0.2s; /* Animación fluida al pasar el mouse */
+=======
+    border-radius: 30px;       
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;           
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    transition: transform 0.2s;
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 /* Efecto Hover (Pasar el mouse por arriba) */
 .btn:hover {
+<<<<<<< HEAD
     transform: scale(1.03);    /* Agranda el botón ligeramente dando efecto de interacción */
     background-color: #66a1b0; /* Aclara el fondo del botón */
+=======
+    transform: scale(1.03);    
+    background-color: #66a1b0; 
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
 }
 
 /* BOTÓN DESTACADO (EMPEZAR EL JUEGO) */
 .btn-principal {
     background-color: #62a3b3; 
     font-size: 1.2rem;
+<<<<<<< HEAD
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Resplandor blanco alrededor */
+=======
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); 
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
 }
 
 /* PANEL INFREIOR DE PERFIL DE USUARIO */
@@ -183,7 +312,11 @@ body {
     align-items: center;
     gap: 10px;
     color: white;
+<<<<<<< HEAD
     background-color: rgba(255,255,255,0.1); /* Fondo blanco con transparencia del 10% */
+=======
+    background-color: rgba(255,255,255,0.1); 
+>>>>>>> 2a7c20547916e3347d2d94d6a253478eaf8ca90f
     padding: 10px;
     border-radius: 20px;
 }
