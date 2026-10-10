@@ -1,0 +1,294 @@
+.contenido-izquierdo-juego {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+    justify-content: space-between;
+    align-items: center; 
+    height: 100%;
+}
+
+.zona-juego {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    position: relative; /* Para sostener el modal centrado */
+}
+
+#board {
+    width: auto;
+    max-width: 480px; 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px; /* Reduce la distancia entre cartas */
+    padding: 5px;
+}
+
+/* Cartas con escala ajustada para la pantalla del juego */
+.card {
+    width: 85px;  
+    height: 105px; /* Altura ajustada para no chocar abajo */
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    perspective: 1000px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    transition: transform 0.5s ease;
+}
+
+.face {
+    transform: rotateY(180deg);
+}
+
+.back {
+    transform: rotateY(0deg);
+}
+
+/* Mantener girada si tiene la clase flipped O si ya se encontró el par (matched) */
+.card.flipped .face,
+.card.matched .face {
+    transform: rotateY(0deg);
+}
+
+.card.flipped .back,
+.card.matched .back {
+    transform: rotateY(-180deg);
+}
+
+/* Deshabilitar interacción en cartas emparejadas */
+.card.matched {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.card.matched:hover {
+    transform: none;
+}
+
+/* --- ESTILOS PANTALLA DE FINALIZACIÓN --- */
+.modal-victoria {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 56, 66, 0.92);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.modal-victoria.oculto {
+    display: none;
+}
+
+.contenido-modal {
+    background-color: #4b808d;
+    border: 3px solid #fff;
+    border-radius: 20px;
+    padding: 25px 30px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    max-width: 380px;
+    width: 90%;
+}
+
+.contenido-modal h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.texto-tiempo {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.contenedor-titulo {
+    background-color: #386775;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px dashed #fff;
+}
+
+.contenedor-titulo span {
+    font-size: 0.85rem;
+    color: #d0e8ec;
+    display: block;
+}
+
+#rango-titulo {
+    font-size: 1.6rem;
+    color: #ffda6a;
+    margin-top: 5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.btn-reiniciar {
+    background-color: #d98a4b;
+    border: 2px solid #fff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-reiniciar:hover {
+    background-color: #e59758;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- NOTIFICACIÓN ESTILO STEAM (TOAST) --- */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.toast-steam {
+    background-color: #1e3842;
+    border: 2px solid #598e9c;
+    border-left: 6px solid #ffda6a;
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    animation: slideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), fadeOut 0.5s ease 4.5s forwards;
+    min-width: 280px;
+}
+
+.toast-steam .icono-achievement {
+    font-size: 2rem;
+    background: #386775;
+    padding: 8px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.toast-steam .detalles-toast small {
+    color: #ffda6a;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.toast-steam .detalles-toast h4 {
+    margin: 2px 0 0 0;
+    font-size: 1rem;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(120%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(120%); }
+}
+
+/* --- VISTA DE PERFIL Y TROFEOS --- */
+.zona-perfil {
+    flex: 1;
+    width: 100%;
+    padding: 10px;
+}
+
+.subtitulo-seccion {
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.grid-trofeos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tarjeta-trofeo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #386775;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 12px 18px;
+    color: white;
+    transition: filter 0.3s, opacity 0.3s;
+}
+
+.tarjeta-trofeo.bloqueado {
+    filter: grayscale(100%);
+    opacity: 0.4;
+}
+
+.tarjeta-trofeo.desbloqueado {
+    filter: grayscale(0%);
+    opacity: 1;
+    border-color: #ffda6a;
+    box-shadow: 0 0 10px rgba(255, 218, 106, 0.3);
+}
+
+.icono-trofeo {
+    font-size: 2.2rem;
+    background: rgba(0,0,0,0.2);
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.info-trofeo h3 {
+    font-size: 1.1rem;
+    margin-bottom: 3px;
+}
+
+.info-trofeo p {
+    font-size: 0.85rem;
+    color: #d0e8ec;
+}

@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Hace que el padding no sume tamaño extra al ancho del elemento */
+    font-family: 'Arial Rounded MT Bold', 'Segoe UI', sans-serif; /* Tipografía redondeada estilo infantil */
+}
+
+/* FONDO DE LA PÁGINA: Centra la pantalla del juego en el monitor */
+body {
+    background-color: #2b4c59; /* Color verde/azul oscuro de fondo exterior */
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center;     /* Centrado vertical */
+    min-height: 100vh;       /* Fuerza al body a ocupar todo el alto de la ventana */
+    padding: 20px;
+}
+
+/* CONTENEDOR INTERFAZ: Simula las dimensiones del tablero/tablet del juego */
+.pantalla-principal {
+    display: flex;            /* Pone la sección izquierda y el menú lateral uno al lado del otro */
+    width: 100%;
+    max-width: 1200px;        /* Ancho máximo para que no se deforme en pantallas gigantes */
+    height: 650px;            /* Alto fijo para mantener la proporción de la imagen */
+    background-color: #4b808d; /* Color de fondo turquesa base del juego */
+    border-radius: 20px;      /* Bordes redondeados de la pantalla general */
+    overflow: hidden;         /* Oculta cualquier desborde de elementos hijos fuera de las esquinas */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra suave para darle profundidad */
+}
+
+/* --- BLOQUE IZQUIERDO (CONTENIDOS) --- */
+.contenido-izquierdo {
+    flex: 1;                  /* Toma todo el espacio disponible restante dejando el menú a la derecha */
+    display: flex;
+    flex-direction: column;   /* Alinea el header, las tarjetas y el footer verticalmente */
+    padding: 20px;
+    justify-content: space-between; /* Distribuye el espacio equitativamente arriba, al medio y abajo */
+}
+
+/* ENCABEZADO (LOGO + TÍTULO) */
+.encabezado {
+    display: flex;
+    align-items: center;      /* Centra verticalmente el texto respecto al círculo del logo */
+    gap: 20px;                /* Separación entre el logo y el texto del título */
+}
+
+/* Círculo contenedor del perrito */
+.logo-mailo {
+    background-color: #d98a4b; /* Fondo naranja del logo */
+    border: 4px solid #fff;    /* Borde grueso blanco */
+    border-radius: 50%;        /* Lo transforma en un círculo perfecto */
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;   /* Centra el texto/emoji dentro del círculo */
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+.titulo-principal {
+    color: white;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4); /* Sombra negra al texto para dar efecto relieve */
+    letter-spacing: 1px;       /* Espaciado leve entre letras */
+}
+
+/* DISTRIBUCIÓN DE LOS 4 PASOS (GRID) */
+.cuadrante-pasos {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide el espacio en 2 columnas de igual ancho (Fracción) */
+    gap: 20px;                      /* Separación entre las tarjetas (filas y columnas) */
+    margin: 20px 0;
+}
+
+/* Tarjetas individuales de los pasos */
+.tarjeta-paso {
+    background-color: #92b7c0; /* Fondo más claro para resaltar del tablero */
+    border: 3px solid #fff;    /* Borde blanco característico del diseño */
+    border-radius: 40px;       /* Bordes muy ovalados idénticos a la imagen */
+    padding: 15px;
+    position: relative;        /* Permite posicionar el número de forma absoluta respecto a esta tarjeta */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #1e3842;            /* Color de texto oscuro para buen contraste */
+    height: 180px;             /* Altura fija para que las 4 sean idénticas */
+}
+
+/* Círculos con el número de cada paso (1, 2, 3, 4) */
+.tarjeta-paso .numero {
+    position: absolute;        /* Se despega del flujo y se ubica libremente */
+    top: 10px;                 /* Distancia desde arriba */
+    left: 15px;                /* Distancia desde la izquierda */
+    background-color: #558d9c; /* Fondo del círculo numérico */
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;   /* Centra el número dentro de su pequeña esfera */
+    align-items: center;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+.pie-pagina {
+    text-align: center;
+    color: #e0f2f1;
+    font-size: 0.9rem;
+}
+
+/* --- BLOQUE DERECHO (MENÚ LATERAL) --- */
+.menu-lateral {
+    width: 280px;              /* Ancho fijo para la barra de menú */
+    background-color: #386775; /* Fondo un tono más oscuro que el tablero izquierdo */
+    border-left: 4px solid #fff; /* Línea divisoria blanca y gruesa */
+    display: flex;
+    flex-direction: column;    /* Coloca los elementos (pestaña, botones, perfil) hacia abajo */
+    padding: 20px;
+    justify-content: space-between;
+    position: relative;        /* Requerido para posicionar la pestaña lateral 'MENU PRINCIPAL' */
+}
+
+/* PESTAÑA VERTICAL "MENU PRINCIPAL" */
+.etiqueta-menu {
+    position: absolute;
+    left: -45px;               /* Saca la pestaña hacia la izquierda metiéndose en la sección anterior */
+    top: 90px;
+    transform: rotate(-90deg); /* Rota el texto para que se lea verticalmente */
+    background-color: #386775; /* Mismo fondo del menú para que parezca una solapa unida */
+    color: white;
+    padding: 5px 15px;
+    border-radius: 10px 10px 0 0; /* Redondea solo las esquinas que sobresalen */
+    border: 3px solid white;
+    border-bottom: none;       /* Quita el borde inferior para fundirse con la barra lateral */
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* CONTENEDOR DE BOTONES */
+.contenedor-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;                 /* Distancia vertical constante entre cada botón */
+    margin-top: 40px;          /* Espacio superior para no chocar con la solapa */
+}
+
+/* ESTILO BASE DE LOS BOTONES (Estilo cápsula) */
+.btn {
+    background-color: #598e9c;
+    color: white;
+    border: 3px solid #fff;
+    border-radius: 30px;       /* Forma de píldora/cápsula */
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;           /* Cambia el cursor a la mano al pasar por encima */
+    display: flex;
+    justify-content: space-between; /* Empuja el texto a la izquierda y el ícono a la derecha */
+    align-items: center;
+    transition: transform 0.2s; /* Animación fluida al pasar el mouse */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Efecto Hover (Pasar el mouse por arriba) */
+.btn:hover {
+    transform: scale(1.03);    /* Agranda el botón ligeramente dando efecto de interacción */
+    background-color: #66a1b0; /* Aclara el fondo del botón */
+}
+
+/* BOTÓN DESTACADO (EMPEZAR EL JUEGO) */
+.btn-principal {
+    background-color: #62a3b3; 
+    font-size: 1.2rem;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Resplandor blanco alrededor */
+}
+
+/* PANEL INFREIOR DE PERFIL DE USUARIO */
+.perfil-usuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    background-color: rgba(255,255,255,0.1); /* Fondo blanco con transparencia del 10% */
+    padding: 10px;
+    border-radius: 20px;
+}
+
+/* Esfera del icono de perfil */
+.avatar {
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+    /* --- SELECTOR DE JUEGOS --- */
+.cuadrante-juegos {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    height: 100%;
+}
+
+.tarjeta-juego {
+    background-color: #92b7c0;
+    border: 3px solid #fff;
+    border-radius: 40px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #1e3842;
+    width: 240px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    animation: entradaSuave 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.tarjeta-juego:hover {
+    transform: scale(1.05);
+    background-color: #a5c6ce;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.tarjeta-juego .icono-juego {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.tarjeta-juego.bloqueado {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(80%);
+}
+
+.tarjeta-juego.bloqueado:hover {
+    transform: none;
+    background-color: #92b7c0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+@keyframes entradaSuave {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* --- ANIMACIONES PARA LAS TARJETAS DEL SELECTOR --- */
+
+/* Definición de la animación de entrada */
+@keyframes entradaSuave {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Aplicación de la animación a las tarjetas */
+.tarjeta-juego {
+    animation: entradaSuave 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    opacity: 0; /* Mantiene la tarjeta oculta antes de que inicie la animación */
+}
+
+/* Retardo (delay) para que la segunda tarjeta aparezca un instante después */
+.tarjeta-juego:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.tarjeta-juego:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.tarjeta-juego:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+/* Asegura que el contenedor lateral administre capas de interacción */
+.menu-lateral {
+    z-index: 1;
+}
+
+/* Evita que la etiqueta inclinada capture clics que no le corresponden */
+.etiqueta-menu {
+    pointer-events: none; 
+}
+
+/* Estilo interactivo y capa superior para el botón de perfil */
+.perfil-usuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 20px;
+    position: relative;
+    z-index: 10; /* Eleva el perfil por encima de otros elementos */
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.perfil-usuario:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.02);
+}
